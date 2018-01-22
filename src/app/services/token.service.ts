@@ -5,20 +5,26 @@ export class TokenService {
   constructor() {}
 
   public get Token(): string {
-    return localStorage.getItem("token") || undefined;
+    return this.getAnyToken("token");
   }
+  
   public set Token(value: string) {
-    if(!value) return;
-    localStorage.setItem("token", value);
-  
+    this.setAnyToken("token", value);
   }
+
   public get RefreshToken(): string {
-    return localStorage.getItem("refresh-token") || undefined;
+    return this.getAnyToken("refresh-token");
   }
-  
+
   public set RefreshToken(value: string) {
-    if(!value) return;
-    localStorage.setItem("refresh-token", value);
+    this.setAnyToken("refresh-token", value);
   }
-  
+
+  private setAnyToken(tokenName: string, value: string) {
+    if (!value) return;
+    localStorage.setItem(tokenName, value);
+  }
+  private getAnyToken(tokenName: string) {
+    return localStorage.getItem(tokenName) || undefined;
+  }
 }
