@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { BookShopHttpInterceptor } from './services/BookShopHttpInterceptor.service';
+import { TokenService } from './services/token.service';
 
 
 @NgModule({
@@ -18,7 +20,14 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TokenService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BookShopHttpInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
