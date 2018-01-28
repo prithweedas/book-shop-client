@@ -1,8 +1,10 @@
+@import '~variables.scss';
+
 nav {
-  background-color: #540032;
+  background-color: $nav-bar-color;
 }
 .menu li a {
-  color: #f0433a;
+  color: $extra-one;
 }
 nav .brand-logo {
   font-size: 1.6rem;
