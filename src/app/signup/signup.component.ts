@@ -12,7 +12,6 @@ import { ISignUpData } from '../models/auth.model';
 export class SignupComponent implements OnInit {
   yearOptions;
   constructor(private authService: AuthService, private router: Router) {}
-
   ngOnInit() {
     const year = new Date().getFullYear();
     this.yearOptions = Array.from(new Array(4), (x, i) => year + i);
