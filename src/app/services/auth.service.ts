@@ -26,7 +26,12 @@ export class AuthService {
   }
 
   signUp(data) {
-    throw new Error('Not Implemented');
+    return this.http
+      .post(RESOURCE_URL + '/users/register', data, {
+        observe: 'response'
+      })
+      .map((res: HttpResponse<any>) => res.body)
+      .catch((err: HttpErrorResponse) => Observable.throw(err));
   }
 
   isLoggedIn(): boolean {

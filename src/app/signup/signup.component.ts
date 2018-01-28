@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router/';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
   yearOptions;
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     const year = new Date().getFullYear();
@@ -17,6 +19,9 @@ export class SignupComponent implements OnInit {
     }));
   }
   signUp(data) {
-    console.log(data);
+    this.authService.signUp(data).subscribe(result => {
+      console.log(result);
+      this.router.navigateByUrl('/');
+    });
   }
 }
