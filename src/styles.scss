@@ -31,3 +31,25 @@ input.ng-dirty.ng-touched.ng-valid {
 .material-icons {
   vertical-align: bottom;
 }
+
+.toast-styles {
+  background-color: #d94d3d;
+  font-size: 1.4rem;
+  i {
+    padding-right: 10px;
+  }
+  p {
+    line-height: 30%;
+  }
+}
+
+.toast-styles p::first-letter {
+  text-transform: uppercase;
+}
+
+#toast-container {
+  top: auto !important;
+  left: auto !important;
+  bottom: 10%;
+  right: 7%;
+}
