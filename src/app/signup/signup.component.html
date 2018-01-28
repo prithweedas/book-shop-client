@@ -9,9 +9,7 @@
           <input ngModel #name="ngModel" name="name" required type="text" id="name">
           <label for="name">Name</label>
           <div *ngIf="name.touched && name.invalid">
-            <div class="alert warning" *ngIf="name.errors.required">
-              <i class="material-icons">error</i> Name is requried.
-            </div>
+            <i class="material-icons">error</i> Name is requried.
           </div>
         </div>
       </div>
@@ -33,8 +31,8 @@
         <div class="input-field">
           <select name="passingYear" ngModel #passingYear="ngModel" name="passingYear" materialize="material_select"
             [materializeSelectOptions]="yearOptions" required>
-            <option value="" disabled selected>Choose your option</option>
-            <option *ngFor="let option of yearOptions" [value]="option.value">{{option.name}}</option>
+            <option value="" disabled selected>Select your passing Year</option>
+            <option *ngFor="let option of yearOptions" [value]="option">{{option}}</option>
           </select>
           <div class="alert warning" *ngIf="passingYear.touched && passingYear.invalid">
             <i class="material-icons">error</i> Passing Year is requried.
@@ -52,7 +50,8 @@
       </div>
       <div class="row">
         <div class="input-field center-align">
-          <button [disabled]="f.invalid" class="btn sign-in-btn">login</button>
+          <button [disabled]="f.invalid" class="btn sign-in-btn">sign up</button>
+
         </div>
       </div>
     </form>
