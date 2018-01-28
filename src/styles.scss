@@ -40,3 +40,10 @@ input.ng-dirty.ng-touched.ng-valid {
     padding-right: 10px;
   }
 }
+
+#toast-container {
+  top: auto !important;
+  left: auto !important;
+  bottom: 10%;
+  right: 7%;
+}
