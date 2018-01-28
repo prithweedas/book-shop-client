@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   signUp(data: ISignUpData) {
     this.authService.signUp(data).subscribe(result => {
       console.log(result);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/login');
     });
   }
 }
