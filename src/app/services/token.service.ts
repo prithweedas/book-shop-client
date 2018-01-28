@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { TOKEN, REFRESH_TOKEN } from "../MagicString";
+import { Injectable } from '@angular/core';
+import { TOKEN, REFRESH_TOKEN } from '../MagicString';
 
 @Injectable()
 export class TokenService {
@@ -8,7 +8,7 @@ export class TokenService {
   public get Token(): string {
     return this.getAnyToken(TOKEN);
   }
-  
+
   public set Token(value: string) {
     this.setAnyToken(TOKEN, value);
   }

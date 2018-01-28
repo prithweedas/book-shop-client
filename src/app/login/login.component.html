@@ -1,18 +1,18 @@
 <div class="row">
   <div class="col s12 m6 offset-m3">
-   <div class="row">
+    <div class="row">
       <h4>Login</h4>
-   </div>
+    </div>
     <form (ngSubmit)="login(f.value)" #f="ngForm" materialize novalidate>
       <div class="row">
         <div class="input-field">
           <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
           <label for="email">Email</label>
           <div *ngIf="email.touched && email.invalid">
-            <div class="alert alert-danger" *ngIf="email.errors.required">
+            <div class="alert warning" *ngIf="email.errors.required">
               Email is requried.
             </div>
-            <div class="alert alert-danger" *ngIf="email.errors.pattern">
+            <div class="alert warning" *ngIf="email.errors.pattern">
               Invalid emaill address
             </div>
           </div>
@@ -22,7 +22,7 @@
         <div class="input-field">
           <input ngModel #password="ngModel" name="password" required type="password" id="password">
           <label for="password">Password</label>
-          <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          <div class="alert warning" *ngIf="password.touched && password.invalid">
             Password is requried.
           </div>
         </div>

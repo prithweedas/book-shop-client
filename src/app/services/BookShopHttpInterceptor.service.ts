@@ -1,15 +1,15 @@
-import { TokenService } from "./token.service";
-import { Injectable } from "@angular/core";
+import { TokenService } from './token.service';
+import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpEvent,
   HttpHandler,
   HttpRequest,
   HttpResponse
-} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { map } from "rxjs/operators";
-import { TOKEN, REFRESH_TOKEN } from "../MagicString";
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+import { TOKEN, REFRESH_TOKEN } from '../MagicString';
 
 @Injectable()
 export class BookShopHttpInterceptor implements HttpInterceptor {
