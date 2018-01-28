@@ -57,8 +57,10 @@ input.ng-dirty.ng-touched.ng-valid {
 
 @media only screen and (max-width: 600px) {
   #toast-container {
-    min-width: 100%;
-    bottom: 0;
-    right: 0;
+    bottom: 5%;
+    right: -15%;
+  }
+  .toast-styles {
+    width: 85%;
   }
 }
