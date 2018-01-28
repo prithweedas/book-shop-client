@@ -11,8 +11,17 @@ import { TokenService } from './services/token.service';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NavbarComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, MaterializeModule],
+  declarations: [
+    AppComponent, 
+    LoginComponent, 
+    NavbarComponent
+  ],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    MaterializeModule
+  ],
   providers: [
     TokenService,
     {
