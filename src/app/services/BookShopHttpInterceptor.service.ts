@@ -23,7 +23,7 @@ export class BookShopHttpInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          // extract token form respose body
+          // extract token from respose body
           const token = event.headers.get(TOKEN);
           const refreshToken = event.headers.get(REFRESH_TOKEN);
           if (token) this.tokenService.Token = token;
