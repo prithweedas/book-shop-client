@@ -1,13 +1,38 @@
-<form (ngSubmit)="login(f.value)" #f="ngForm" novalidate>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input ngModel name="email" required type="email" id="email" class="form-control">
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+   <div class="row">
+      <h4>Login</h4>
+   </div>
+    <form (ngSubmit)="login(f.value)" #f="ngForm" materialize novalidate>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
+          <label for="email">Email</label>
+          <div *ngIf="email.touched && email.invalid">
+            <div class="alert alert-danger" *ngIf="email.errors.required">
+              Email is requried.
+            </div>
+            <div class="alert alert-danger" *ngIf="email.errors.pattern">
+              Invalid emaill address
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #password="ngModel" name="password" required type="password" id="password">
+          <label for="password">Password</label>
+          <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            Password is requried.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field">
+          <button [disabled]="f.invalid" class="btn btn-primary">login</button>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input ngModel name="password" required type="password" id="password" class="form-control">
-  </div>
-  <div class="form-group">
-    <button [disabled]="f.invalid" class="btn btn-primary">login</button>
-  </div>
-</form>
+</div>

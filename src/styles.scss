@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+$roboto-font-path: "../node_modules/materialize-css/dist/fonts/roboto/";
+@import "~materialize-css/sass/materialize";
+
+.alert {
+    @extend .card-panel, .lighten-4, .text-darken-4;
+    
+    box-shadow: none;
+    margin: 0;
+    padding: 16px 10px;
+    margin-top: -19px;
+
+    &.alert-danger {
+        @extend .red, .red-text;
+    }
+}
+
+input.ng-dirty.ng-touched.ng-invalid {
+    border-bottom: 1.5px solid #B71C1C !important;
+}
+
+input.ng-dirty.ng-touched.ng-valid {
+   border-bottom: 1.5px solid #26a69a !important;
+}
