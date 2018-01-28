@@ -1,15 +1,15 @@
-import { TokenService } from "./token.service";
-import { Injectable } from "@angular/core";
+import { TokenService } from './token.service';
+import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
   HttpEvent,
   HttpHandler,
   HttpRequest,
   HttpResponse
-} from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { map } from "rxjs/operators";
-import { TOKEN, REFRESH_TOKEN } from "../MagicString";
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
+import { TOKEN, REFRESH_TOKEN } from '../MagicString';
 
 @Injectable()
 export class BookShopHttpInterceptor implements HttpInterceptor {
@@ -23,7 +23,7 @@ export class BookShopHttpInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          // extract token form respose body
+          // extract token from respose body
           const token = event.headers.get(TOKEN);
           const refreshToken = event.headers.get(REFRESH_TOKEN);
           if (token) this.tokenService.Token = token;

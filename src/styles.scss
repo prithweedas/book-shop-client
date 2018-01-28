@@ -1,23 +1,33 @@
-$roboto-font-path: "../node_modules/materialize-css/dist/fonts/roboto/";
-@import "~materialize-css/sass/materialize";
+$roboto-font-path: '../node_modules/materialize-css/dist/fonts/roboto/';
+@import '~materialize-css/sass/materialize';
+@import '~variables.scss';
 
 .alert {
-    @extend .card-panel, .lighten-4, .text-darken-4;
-    
-    box-shadow: none;
-    margin: 0;
-    padding: 16px 10px;
-    margin-top: -19px;
+  @extend .card-panel, .lighten-4, .text-darken-4;
 
-    &.alert-danger {
-        @extend .red, .red-text;
-    }
+  box-shadow: none;
+  margin: 0;
+  padding: 16px 10px;
+  margin-top: -19px;
+
+  &.alert-danger {
+    @extend .red, .red-text;
+  }
 }
 
 input.ng-dirty.ng-touched.ng-invalid {
-    border-bottom: 1.5px solid #B71C1C !important;
+  border-bottom: 1.5px solid #b71c1c !important;
 }
 
 input.ng-dirty.ng-touched.ng-valid {
-   border-bottom: 1.5px solid #26a69a !important;
+  border-bottom: 1.5px solid $extra-one !important;
+}
+
+.warning {
+  background-color: rgba($color: $extra-two, $alpha: 0.4);
+  color: #820333;
+}
+
+.material-icons {
+  vertical-align: bottom;
 }

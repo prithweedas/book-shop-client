@@ -1,19 +1,19 @@
 <div class="row">
-  <div class="col s12 m6 offset-m3">
-   <div class="row">
+  <div class="col s12 m6">
+    <div class="row">
       <h4>Login</h4>
-   </div>
+    </div>
     <form (ngSubmit)="login(f.value)" #f="ngForm" materialize novalidate>
       <div class="row">
         <div class="input-field">
           <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
           <label for="email">Email</label>
           <div *ngIf="email.touched && email.invalid">
-            <div class="alert alert-danger" *ngIf="email.errors.required">
-              Email is requried.
+            <div class="alert warning" *ngIf="email.errors.required">
+              <i class="material-icons">error</i> Email is requried.
             </div>
-            <div class="alert alert-danger" *ngIf="email.errors.pattern">
-              Invalid emaill address
+            <div class="alert warning" *ngIf="email.errors.pattern">
+              <i class="material-icons">error</i> Invalid email address
             </div>
           </div>
         </div>
@@ -22,15 +22,16 @@
         <div class="input-field">
           <input ngModel #password="ngModel" name="password" required type="password" id="password">
           <label for="password">Password</label>
-          <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
-            Password is requried.
+          <div class="alert warning" *ngIf="password.touched && password.invalid">
+            <i class="material-icons">error</i> Password is requried.
           </div>
         </div>
       </div>
 
+
       <div class="row">
-        <div class="input-field">
-          <button [disabled]="f.invalid" class="btn btn-primary">login</button>
+        <div class="input-field center-align">
+          <button [disabled]="f.invalid" class="btn sign-in-btn">login</button>
         </div>
       </div>
     </form>
