@@ -1,36 +1,38 @@
 <div class="row">
-  <div class="input-field col s12 m6 offset-m3">
-    <h4>Login</h4>
-  </div>
-  <form (ngSubmit)="login(f.value)" #f="ngForm" materialize novalidate class="col s12">
-    <div class="row">
-      <div class="input-field col s12 m6 offset-m3">
-        <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
-        <label for="email">Email</label>
-        <div *ngIf="email.touched && email.invalid">
-          <div class="alert alert-danger" *ngIf="email.errors.required">
-            Email is requried.
-          </div>
-          <div class="alert alert-danger" *ngIf="email.errors.pattern">
-            Invalid emaill address
+  <div class="col s12 m6 offset-m3">
+   <div class="row">
+      <h4>Login</h4>
+   </div>
+    <form (ngSubmit)="login(f.value)" #f="ngForm" materialize novalidate>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
+          <label for="email">Email</label>
+          <div *ngIf="email.touched && email.invalid">
+            <div class="alert alert-danger" *ngIf="email.errors.required">
+              Email is requried.
+            </div>
+            <div class="alert alert-danger" *ngIf="email.errors.pattern">
+              Invalid emaill address
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m6  offset-m3">
-        <input ngModel #password="ngModel" name="password" required type="password" id="password">
-        <label for="password">Password</label>
-        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
-          Password is requried.
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #password="ngModel" name="password" required type="password" id="password">
+          <label for="password">Password</label>
+          <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            Password is requried.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s12 m6 offset-m3">
-        <button [disabled]="f.invalid" class="btn btn-primary">login</button>
+      <div class="row">
+        <div class="input-field">
+          <button [disabled]="f.invalid" class="btn btn-primary">login</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
