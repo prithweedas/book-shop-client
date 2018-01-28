@@ -8,7 +8,11 @@ export class AppErrorHandler implements ErrorHandler {
     // Oh My God! error.error.error.... :/
     if (err && err.error && err.error.error && err.error.error.message) {
       console.log(err.error.error.message);
-      Materialize.toast(err.error.error.message, 4000, 'toast-styles');
+      Materialize.toast(
+        `<i class="material-icons">warning</i>${' ' + err.error.error.message}`,
+        4000,
+        'toast-styles'
+      );
     }
 
     console.log('Handled By GLOBAL', err);

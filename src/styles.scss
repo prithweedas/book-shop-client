@@ -33,6 +33,10 @@ input.ng-dirty.ng-touched.ng-valid {
 }
 
 .toast-styles {
-  background-color: $secondary-color;
-  font-size: 1.6rem;
+  background-color: #d94d3d;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  i {
+    padding-right: 10px;
+  }
 }
