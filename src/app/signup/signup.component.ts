@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router/';
 
+import { ISignUpData } from '../models/auth.model';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -18,7 +20,7 @@ export class SignupComponent implements OnInit {
       name: year + i
     }));
   }
-  signUp(data) {
+  signUp(data: ISignUpData) {
     this.authService.signUp(data).subscribe(result => {
       console.log(result);
       this.router.navigateByUrl('/');
