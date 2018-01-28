@@ -15,10 +15,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     const year = new Date().getFullYear();
-    this.yearOptions = Array.from(new Array(4), (x, i) => ({
-      value: year + i,
-      name: year + i
-    }));
+    this.yearOptions = Array.from(new Array(4), (x, i) => year + i);
   }
   signUp(data: ISignUpData) {
     this.authService.signUp(data).subscribe(result => {

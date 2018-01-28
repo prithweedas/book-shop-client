@@ -34,7 +34,7 @@
           <select name="passingYear" ngModel #passingYear="ngModel" name="passingYear" materialize="material_select"
             [materializeSelectOptions]="yearOptions" required>
             <option value="" disabled selected>Choose your option</option>
-            <option *ngFor="let option of yearOptions" [value]="option.value">{{option.name}}</option>
+            <option *ngFor="let option of yearOptions" [value]="option">{{option}}</option>
           </select>
           <div class="alert warning" *ngIf="passingYear.touched && passingYear.invalid">
             <i class="material-icons">error</i> Passing Year is requried.
