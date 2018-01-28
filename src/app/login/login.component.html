@@ -19,8 +19,11 @@
     </div>
     <div class="row">
       <div class="input-field col s12 m6  offset-m3">
-        <input ngModel name="password" required type="password" id="password">
+        <input ngModel #password="ngModel" name="password" required type="password" id="password">
         <label for="password">Password</label>
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+          Password is requried.
+        </div>
       </div>
     </div>
 
