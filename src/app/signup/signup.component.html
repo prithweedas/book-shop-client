@@ -1,3 +1,60 @@
-<p>
-  signup works!
-</p>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="row">
+      <h4>Sign Up</h4>
+    </div>
+    <form (ngSubmit)="signUp(f.value)" #f="ngForm" materialize novalidate>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #name="ngModel" name="name" required type="text" id="name">
+          <label for="name">Name</label>
+          <div *ngIf="name.touched && name.invalid">
+            <div class="alert warning" *ngIf="name.errors.required">
+              <i class="material-icons">error</i> Name is requried.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #email="ngModel" name="email" required type="email" id="email" pattern="^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$">
+          <label for="email">Email</label>
+          <div *ngIf="email.touched && email.invalid">
+            <div class="alert warning" *ngIf="email.errors.required">
+              <i class="material-icons">error</i> Email is requried.
+            </div>
+            <div class="alert warning" *ngIf="email.errors.pattern">
+              <i class="material-icons">error</i> Invalid email address
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <select name="passingYear" ngModel #passingYear="ngModel" name="passingYear" materialize="material_select"
+            [materializeSelectOptions]="yearOptions" required>
+            <option value="" disabled selected>Choose your option</option>
+            <option *ngFor="let option of yearOptions" [value]="option.value">{{option.name}}</option>
+          </select>
+          <div class="alert warning" *ngIf="passingYear.touched && passingYear.invalid">
+            <i class="material-icons">error</i> Passing Year is requried.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <input ngModel #password="ngModel" name="password" required type="password" id="password">
+          <label for="password">Password</label>
+          <div class="alert warning" *ngIf="password.touched && password.invalid">
+            <i class="material-icons">error</i> Password is requried.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field center-align">
+          <button [disabled]="f.invalid" class="btn sign-in-btn">login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
