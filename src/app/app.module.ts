@@ -1,3 +1,5 @@
+import { ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './app.error-handler';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -37,6 +39,10 @@ import { AuthService } from './services/auth.service';
       provide: HTTP_INTERCEPTORS,
       useClass: BookShopHttpInterceptor,
       multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
     }
   ],
   bootstrap: [AppComponent]
