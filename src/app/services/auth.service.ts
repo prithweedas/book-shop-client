@@ -1,7 +1,11 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { ILoginData } from './../models/auth.model';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpResponse,
+  HttpErrorResponse
+} from '@angular/common/http';
 import { RESOURCE_URL } from '../MagicString';
 
 import 'rxjs/add/operator/map';
@@ -17,7 +21,7 @@ export class AuthService {
       .post(RESOURCE_URL + '/users/login', data, {
         observe: 'response'
       })
-      .map((data: HttpResponse<any>) => data.body)
+      .map((res: HttpResponse<any>) => res.body)
       .catch((err: HttpErrorResponse) => Observable.throw(err));
   }
 
