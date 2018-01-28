@@ -9,7 +9,9 @@ export class AppErrorHandler implements ErrorHandler {
     if (err && err.error && err.error.error && err.error.error.message) {
       console.log(err.error.error.message);
       Materialize.toast(
-        `<i class="material-icons">warning</i>${' ' + err.error.error.message}`,
+        `<i class="material-icons">warning</i>${'<p>' +
+          err.error.error.message +
+          '</p>'}`,
         4000,
         'toast-styles'
       );
