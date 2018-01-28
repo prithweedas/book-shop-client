@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ILoginData } from './../models/auth.model';
 
@@ -7,11 +9,14 @@ import { ILoginData } from './../models/auth.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   login(data: ILoginData) {
-   
+    this.authService.login(data).subscribe(result => {
+      console.log(result);
+      this.router.navigateByUrl('/');
+    });
   }
 }

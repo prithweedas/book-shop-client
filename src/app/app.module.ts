@@ -11,6 +11,7 @@ import { BookShopHttpInterceptor } from './services/BookShopHttpInterceptor.serv
 import { TokenService } from './services/token.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [
     TokenService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BookShopHttpInterceptor,
