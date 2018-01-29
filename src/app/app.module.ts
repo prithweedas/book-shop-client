@@ -14,13 +14,15 @@ import { TokenService } from './services/token.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth.service';
+import { ListItemsComponent } from './list-items/list-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    ListItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,8 +30,10 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     MaterializeModule,
     RouterModule.forRoot([
+      {path: '', redirectTo : '/items', pathMatch:'full'},
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'items', component: ListItemsComponent },
     ])
   ],
   providers: [
