@@ -5,7 +5,8 @@ import {
   HttpEvent,
   HttpHandler,
   HttpRequest,
-  HttpResponse
+  HttpResponse,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
@@ -17,8 +18,17 @@ export class BookShopHttpInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // set token in request body
-    req.headers.set(TOKEN, this.tokenService.Token);
-    req.headers.set(REFRESH_TOKEN, this.tokenService.RefreshToken);
+    const headers = {
+      TOKEN: this.tokenService.Token,
+      REFRESH_TOKEN: this.tokenService.RefreshToken
+    };
+
+    // removing undefined
+    Object.keys(headers).forEach(key => {
+      if(!headers[key]) delete headers[key]
+    });
+
+    req = req.clone({ setHeaders: headers });
 
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
