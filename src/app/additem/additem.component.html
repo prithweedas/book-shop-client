@@ -22,27 +22,39 @@
           </div>
         </div>
         <div class="input-field  col s6">
-          <input ngModel #price="ngModel" name="price" required type="text" id="price">
+          <input ngModel #price="ngModel" name="price" required type="text" pattern="^\d+$"
+            id="price">
           <label for="price">Price</label>
-          <div class="alert warning" *ngIf="price.touched && price.invalid">
-            <i class="material-icons">error</i> Price is requried.
+          <div *ngIf="price.touched && price.invalid">
+            <div class="alert warning" *ngIf="price.errors.required">
+              <i class="material-icons">error</i> Price is requried.
+            </div>
+            <div class="alert warning" *ngIf="price.errors.pattern">
+              <i class="material-icons">error</i> Invalid price
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input ngModel #publishYear="ngModel" name="publishYear" required type="text" id="publishYear">
-          <label for="password">Publication Year</label>
-          <div class="alert warning" *ngIf="publishYear.touched && publishYear.invalid">
-            <i class="material-icons">error</i> Publication Year is requried.
+          <input ngModel #publishYear="ngModel" name="publishYear" pattern="^\d\d\d\d$" required
+            type="text" id="publishYear">
+          <label for="publishYear">Publication Year</label>
+          <div *ngIf="publishYear.touched && publishYear.invalid">
+            <div class="alert warning" *ngIf="publishYear.errors.required">
+              <i class="material-icons">error</i> publishYear is requried.
+            </div>
+            <div class="alert warning" *ngIf="publishYear.errors.pattern">
+              <i class="material-icons">error</i> Invalid publishYear
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" ngModel #description="ngModel" name="description" class="materialize-textarea"
+          <textarea id="description" ngModel #description="ngModel" name="description" class="materialize-textarea"
             materialize="characterCounter" [attr.length]="200"></textarea>
-          <label for="textarea1">Description (Optional)</label>
+          <label for="description">Description (Optional)</label>
         </div>
       </div>
       <div class="row file-field input-field">

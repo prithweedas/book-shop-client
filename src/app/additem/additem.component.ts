@@ -17,12 +17,6 @@ export class AdditemComponent implements OnInit {
     Object.keys(data).forEach(key =>
       this.addItemFormData.append(key, data[key])
     );
-    console.log(this.addItemFormData.get('image'));
-    console.log(this.addItemFormData.get('name'));
-    console.log(this.addItemFormData.get('price'));
-    console.log(this.addItemFormData.get('publishYear'));
-    console.log(this.addItemFormData.get('description'));
-    console.log(this.addItemFormData.get('author'));
   }
 
   onFileSelection(e) {
