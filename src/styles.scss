@@ -53,7 +53,8 @@ input.ng-dirty.ng-touched.ng-valid {
   display: inline-block !important;
 }
 
-.toast-styles {
+
+.toast-styles-warning {
   background-color: #d94d3d;
   font-size: 1.4rem;
   justify-content: flex-start;
@@ -65,7 +66,13 @@ input.ng-dirty.ng-touched.ng-valid {
   }
 }
 
-.toast-styles p::first-letter {
+.toast-styles-success {
+  @extend .toast-styles-warning;
+  background-color: $secondary-color;
+}
+
+.toast-styles-warning p::first-letter,
+.toast-styles-success p::first-letter {
   text-transform: uppercase;
 }
 
@@ -81,7 +88,8 @@ input.ng-dirty.ng-touched.ng-valid {
     bottom: 5%;
     right: -15%;
   }
-  .toast-styles {
+  .toast-styles-warning,
+  .toast-styles-success {
     width: 85%;
   }
 }
