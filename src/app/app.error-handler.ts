@@ -13,7 +13,7 @@ export class AppErrorHandler implements ErrorHandler {
           err.error.error.message +
           '</p>'}`,
         4000,
-        'toast-styles'
+        'toast-styles-warning'
       );
     }
 
