@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
 
 import { ItemsService } from '../services/items.service';
+import { Router } from '@angular/router';
 
 declare var Materialize;
 
@@ -11,9 +12,9 @@ declare var Materialize;
   styleUrls: ['./additem.component.scss']
 })
 export class AdditemComponent implements OnInit {
-  addItemFormData = new FormData();
+  addItemFormData;
 
-  constructor(private itemService: ItemsService) {}
+  constructor(private itemService: ItemsService, private router: Router) {}
 
   add(data) {
     Object.keys(data).forEach(key =>
@@ -22,6 +23,12 @@ export class AdditemComponent implements OnInit {
 
     this.itemService.addItem(this.addItemFormData).subscribe(result => {
       console.log(result);
+      Materialize.toast(
+        `<i class="material-icons">check</i><p>Item Added</p>`,
+        4000,
+        'toast-styles-success'
+      );
+      this.router.navigateByUrl('/'); // this url will change later
     });
   }
 
@@ -31,12 +38,14 @@ export class AdditemComponent implements OnInit {
       Materialize.toast(
         `<i class="material-icons">warning</i><p>Not an Image</p>`,
         4000,
-        'toast-styles'
+        'toast-styles-warning'
       );
       return;
     }
     this.addItemFormData.append('image', e.target.files[0]);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.addItemFormData = new FormData();
+  }
 }
