@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterializeAction } from 'angular2-materialize';
 
+import { ItemsService } from '../services/items.service';
+
 declare var Materialize;
 
 @Component({
@@ -11,12 +13,16 @@ declare var Materialize;
 export class AdditemComponent implements OnInit {
   addItemFormData = new FormData();
 
-  constructor() {}
+  constructor(private itemService: ItemsService) {}
 
   add(data) {
     Object.keys(data).forEach(key =>
       this.addItemFormData.append(key, data[key])
     );
+
+    this.itemService.addItem(this.addItemFormData).subscribe(result => {
+      console.log(result);
+    });
   }
 
   onFileSelection(e) {
