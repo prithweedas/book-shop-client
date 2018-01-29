@@ -40,4 +40,14 @@ export class ItemsService {
       .map((res: HttpResponse<any>) => res.body)
       .catch((err: HttpErrorResponse) => Observable.throw(err));
   }
+
+  getItem(id: string) {
+    return this.http
+      .get(RESOURCE_URL + `/items/${id}`, { observe: 'response' })
+      .map((res: HttpResponse<any>) => {
+        res.body.item.image = RESOURCE_URL + '/' + res.body.item.image;
+        return res.body;
+      })
+      .catch((err: HttpErrorResponse) => Observable.throw(err));
+  }
 }
