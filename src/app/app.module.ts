@@ -25,7 +25,7 @@ import { ItemViewComponent } from './item-view/item-view.component';
     LoginComponent,
     NavbarComponent,
     SignupComponent,
-    ListItemsComponent
+    ListItemsComponent,
     AdditemComponent,
     ItemViewComponent
   ],
