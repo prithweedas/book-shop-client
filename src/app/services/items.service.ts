@@ -13,8 +13,10 @@ export class ItemsService {
   constructor(private http: HttpClient) {}
 
   addItem(data) {
+    const addItemFormData = new FormData();
+    Object.keys(data).forEach(key => addItemFormData.append(key, data[key]));
     return this.http
-      .post(RESOURCE_URL + '/items', data, {
+      .post(RESOURCE_URL + '/items', addItemFormData, {
         observe: 'response'
       })
       .map((res: HttpResponse<any>) => res.body)

@@ -12,16 +12,13 @@ declare var Materialize;
   styleUrls: ['./additem.component.scss']
 })
 export class AdditemComponent implements OnInit {
-  addItemFormData;
+  image;
 
   constructor(private itemService: ItemsService, private router: Router) {}
-
+  ngOnInit() {}
   add(data) {
-    Object.keys(data).forEach(key =>
-      this.addItemFormData.append(key, data[key])
-    );
-
-    this.itemService.addItem(this.addItemFormData).subscribe(result => {
+    data.image = this.image;
+    this.itemService.addItem(data).subscribe(result => {
       console.log(result);
       Materialize.toast(
         `<i class="material-icons">check</i><p>Item Added</p>`,
@@ -42,10 +39,6 @@ export class AdditemComponent implements OnInit {
       );
       return;
     }
-    this.addItemFormData.append('image', e.target.files[0]);
-  }
-
-  ngOnInit() {
-    this.addItemFormData = new FormData();
+    this.image = e.target.files[0];
   }
 }
