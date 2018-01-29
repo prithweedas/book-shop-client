@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { ListItemsComponent } from './list-items/list-items.component';
+import { ItemsService } from './services/items.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ListItemsComponent } from './list-items/list-items.component';
   providers: [
     TokenService,
     AuthService,
+    ItemsService
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BookShopHttpInterceptor,

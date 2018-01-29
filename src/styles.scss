@@ -32,6 +32,15 @@ input.ng-dirty.ng-touched.ng-valid {
   vertical-align: bottom;
 }
 
+.card-image {
+  height: 250px;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+}
+
 .toast-styles {
   background-color: #d94d3d;
   font-size: 1.4rem;
