@@ -6,6 +6,14 @@ export interface IItem {
   price: number;
   author: string;
   description: string;
-  owner: string;
+  owner: string | IOwner;
   image: string;
+}
+
+export interface IOwner {
+  _id: string;
+  name: string;
+  college: string;
+  email: string;
+  passingYear: string;
 }
