@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { ListItemsComponent } from './list-items/list-items.component';
 import { AdditemComponent } from './additem/additem.component';
 import { ItemsService } from './services/items.service';
+import { ItemViewComponent } from './item-view/item-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ItemsService } from './services/items.service';
     NavbarComponent,
     SignupComponent,
     ListItemsComponent
-    AdditemComponent
+    AdditemComponent,
+    ItemViewComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { ItemsService } from './services/items.service';
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'items', component: ListItemsComponent },
-      { path: 'items/add', component: AdditemComponent }
+      { path: 'items/add', component: AdditemComponent },
+      { path: 'items/:id', component: ItemViewComponent }
     ])
   ],
   providers: [

@@ -1,6 +1,6 @@
 <div class="row">
   <h4>Items</h4>
-  <div *ngFor="let item of items" class="col s12 m4">
+  <a [routerLink]="['/items', item._id]" *ngFor="let item of items" class="col s12 m4">
     <div class="card hoverable">
       <div class="card-image">
         <img [src]="item.image">
@@ -11,5 +11,5 @@
         <p class="clear-fix italic">{{item.author}}</p>
       </div>
     </div>
-  </div>
+  </a>
 </div>
