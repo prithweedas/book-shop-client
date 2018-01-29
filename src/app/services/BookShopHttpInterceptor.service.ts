@@ -20,7 +20,13 @@ export class BookShopHttpInterceptor implements HttpInterceptor {
     req.headers.set(TOKEN, this.tokenService.Token);
     req.headers.set(REFRESH_TOKEN, this.tokenService.RefreshToken);
 
-    return next.handle(req).pipe(
+    const request = req.clone({
+      setHeaders: {
+        TOKEN: `${this.tokenService.Token}`,
+        REFRESH_TOKEN: `${this.tokenService.RefreshToken}`
+      }
+    });
+    return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           // extract token from respose body
