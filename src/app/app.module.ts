@@ -14,13 +14,15 @@ import { TokenService } from './services/token.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth.service';
+import { AdditemComponent } from './additem/additem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    AdditemComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { AuthService } from './services/auth.service';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'items/add', component: AdditemComponent }
     ])
   ],
   providers: [

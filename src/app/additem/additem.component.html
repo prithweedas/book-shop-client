@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col s12 m6">
+    <div class="row">
+      <h4>Add Item</h4>
+    </div>
+    <form (ngSubmit)="add(f.value)" #f="ngForm" materialize novalidate>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ngModel #name="ngModel" name="name" required type="text" id="name">
+          <label for="name">Name</label>
+          <div class="alert warning" *ngIf="name.touched && name.invalid">
+            <i class="material-icons">error</i> Name is requried.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input ngModel #author="ngModel" name="author" required type="text" id="author">
+          <label for="author">Author</label>
+          <div class="alert warning" *ngIf="author.touched && author.invalid">
+            <i class="material-icons">error</i> Author is requried.
+          </div>
+        </div>
+        <div class="input-field  col s6">
+          <input ngModel #price="ngModel" name="price" required type="text" id="price">
+          <label for="price">Price</label>
+          <div class="alert warning" *ngIf="price.touched && price.invalid">
+            <i class="material-icons">error</i> Price is requried.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input ngModel #publishYear="ngModel" name="publishYear" required type="text" id="publishYear">
+          <label for="password">Publication Year</label>
+          <div class="alert warning" *ngIf="publishYear.touched && publishYear.invalid">
+            <i class="material-icons">error</i> Publication Year is requried.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" ngModel #description="ngModel" name="description" class="materialize-textarea"
+            materialize="characterCounter" [attr.length]="200"></textarea>
+          <label for="textarea1">Description (Optional)</label>
+        </div>
+      </div>
+      <div class="row file-field input-field">
+        <div class="btn">
+          <span>Image</span>
+          <input name="image" type="file" (change)="onFileSelection($event)">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field center-align">
+          <button [disabled]="f.invalid" class="btn sign-in-btn">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
