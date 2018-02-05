@@ -18,15 +18,11 @@ export class BookShopHttpInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // set token in request body
-    const headers = {
-      TOKEN: this.tokenService.Token,
-      REFRESH_TOKEN: this.tokenService.RefreshToken
-    };
-
-    // removing undefined
-    Object.keys(headers).forEach(key => {
-      if(!headers[key]) delete headers[key]
-    });
+    const headers = {};
+    const token = this.tokenService.Token;
+    const refreshToken = this.tokenService.RefreshToken;
+    if (token) headers[TOKEN] = token;
+    if (refreshToken) headers[REFRESH_TOKEN] = this.tokenService.RefreshToken;
 
     req = req.clone({ setHeaders: headers });
 
