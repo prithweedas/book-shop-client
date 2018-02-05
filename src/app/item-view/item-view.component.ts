@@ -1,6 +1,6 @@
 import { IItem } from './../models/items.model';
 import { ItemsService } from './../services/items.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemViewComponent implements OnInit {
   item: IItem;
+  actions = new EventEmitter<string>();
 
   constructor(
     private ItemsService: ItemsService,
