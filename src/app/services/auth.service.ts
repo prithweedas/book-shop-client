@@ -42,8 +42,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const refreshToken = this.tokenService.RefreshToken;
-    console.log(jwt_decode);
-    let decoedRefreshToken;
+    let decoedRefreshToken: any = {};
     if (refreshToken) decoedRefreshToken = jwt_decode(refreshToken);
     const now = Math.floor(Date.now() / 1000);
 
