@@ -23,7 +23,7 @@
             <li *ngIf="authService.isLoggedIn()" [routerLinkActive]="['active']">
               <a [routerLink]="['/items', 'add']">Add Items</a>
             </li>
-            <li *ngIf="authService.isLoggedIn()" (click)="authService.logout()" [routerLinkActive]="['active']">
+            <li *ngIf="authService.isLoggedIn()" [routerLinkActive]="['active']">
               <a [routerLink]="['/']">Hi, {{authService.getloggedInUserName()}}</a>
             </li>
             <li *ngIf="authService.isLoggedIn()" (click)="authService.logout()" [routerLinkActive]="['active']">
