@@ -41,16 +41,12 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    const token = this.tokenService.Token;
     const refreshToken = this.tokenService.RefreshToken;
     console.log(jwt_decode);
-    let decodedToken: any = {};
-    let decoedRefreshToken: any = {};
-
-    if (token) decodedToken = jwt_decode(token);
+    let decoedRefreshToken;
     if (refreshToken) decoedRefreshToken = jwt_decode(refreshToken);
     const now = Math.floor(Date.now() / 1000);
 
-    return +decodedToken.exp > now || +decoedRefreshToken.exp > now;
+    return +decoedRefreshToken.exp > now;
   }
 }
