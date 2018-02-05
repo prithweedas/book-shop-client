@@ -14,8 +14,12 @@ import { TokenService } from './services/token.service';
 import { SignupComponent } from './signup/signup.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth.service';
+import { ListItemsComponent } from './list-items/list-items.component';
 import { AdditemComponent } from './additem/additem.component';
 import { ItemsService } from './services/items.service';
+import { ItemViewComponent } from './item-view/item-view.component';
+import { ItemCardComponent } from './item-card/item-card.component';
+import { ShortNamePipe } from './pipes/short-name.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { ItemsService } from './services/items.service';
     LoginComponent,
     NavbarComponent,
     SignupComponent,
-    AdditemComponent
+    ListItemsComponent,
+    AdditemComponent,
+    ItemViewComponent,
+    ItemCardComponent,
+    ShortNamePipe
   ],
   imports: [
     BrowserModule,
@@ -31,9 +39,12 @@ import { ItemsService } from './services/items.service';
     HttpClientModule,
     MaterializeModule,
     RouterModule.forRoot([
+      {path: '', redirectTo : '/items', pathMatch:'full'},
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
-      { path: 'items/add', component: AdditemComponent }
+      { path: 'items', component: ListItemsComponent },
+      { path: 'items/add', component: AdditemComponent },
+      { path: 'items/:id', component: ItemViewComponent }
     ])
   ],
   providers: [

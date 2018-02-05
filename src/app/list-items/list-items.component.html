@@ -1,0 +1,6 @@
+<div class="row">
+  <h4>Items</h4>
+  <a [routerLink]="['/items', item._id]" *ngFor="let item of items" class="col s12 m4">
+    <app-item-card [item]="item"></app-item-card>
+  </a>
+</div>

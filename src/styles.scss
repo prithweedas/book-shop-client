@@ -32,6 +32,28 @@ input.ng-dirty.ng-touched.ng-valid {
   vertical-align: bottom;
 }
 
+.card-image {
+  height: 250px;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.clear-fix {
+  clear: both !important;
+}
+
+.italic {
+  font-style: italic !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+
 .toast-styles-warning {
   background-color: #d94d3d;
   font-size: 1.4rem;

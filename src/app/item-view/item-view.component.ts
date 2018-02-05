@@ -1,0 +1,23 @@
+import { IItem } from './../models/items.model';
+import { ItemsService } from './../services/items.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-item-view',
+  templateUrl: './item-view.component.html',
+  styleUrls: ['./item-view.component.scss']
+})
+export class ItemViewComponent implements OnInit {
+  item: IItem;
+
+  constructor(
+    private ItemsService: ItemsService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.ItemsService.getItem(id).subscribe(data => (this.item = data.item));
+  }
+}

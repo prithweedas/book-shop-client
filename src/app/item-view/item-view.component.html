@@ -1,0 +1,16 @@
+<div *ngIf="item">
+  <h4>{{item.name}}</h4>
+
+  <div class="row">
+    <div class="col m6">
+      <img style="width: 100%" class="materialboxed" [src]="item.image">
+    </div>
+    <div class="m6">
+      <h4>{{item.name}}</h4>
+      <p>{{item.author}} | {{item.publishYear}}</p>
+      <p>{{item.price | currency: 'INR':true}}</p>
+      <p>{{item.description}}</p>
+    </div>
+  </div>
+
+</div>
