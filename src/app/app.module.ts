@@ -19,6 +19,7 @@ import { AdditemComponent } from './additem/additem.component';
 import { ItemsService } from './services/items.service';
 import { ItemViewComponent } from './item-view/item-view.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { ShortNamePipe } from './pipes/short-name.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ItemCardComponent } from './item-card/item-card.component';
     ListItemsComponent,
     AdditemComponent,
     ItemViewComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    ShortNamePipe
   ],
   imports: [
     BrowserModule,
