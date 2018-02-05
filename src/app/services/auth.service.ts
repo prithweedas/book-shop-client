@@ -1,3 +1,4 @@
+import { TokenService } from './token.service';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { ILoginData } from './../models/auth.model';
@@ -7,6 +8,7 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { RESOURCE_URL } from '../MagicString';
+import * as jwt_decode from 'jwt-decode';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -14,7 +16,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   login(data: ILoginData) {
     return this.http
@@ -34,7 +36,21 @@ export class AuthService {
       .catch((err: HttpErrorResponse) => Observable.throw(err));
   }
 
+  logout() {
+    this.tokenService.removeAlltoken();
+  }
+
   isLoggedIn(): boolean {
-    throw new Error('Not Implemented');
+    const token = this.tokenService.Token;
+    const refreshToken = this.tokenService.RefreshToken;
+    console.log(jwt_decode);
+    let decodedToken: any = {};
+    let decoedRefreshToken: any = {};
+
+    if (token) decodedToken = jwt_decode(token);
+    if (refreshToken) decoedRefreshToken = jwt_decode(refreshToken);
+    const now = Math.floor(Date.now() / 1000);
+
+    return +decodedToken.exp > now || +decoedRefreshToken.exp > now;
   }
 }

@@ -21,6 +21,11 @@ export class TokenService {
     this.setAnyToken(REFRESH_TOKEN, value);
   }
 
+  public removeAlltoken() {
+    localStorage.removeItem(TOKEN);
+    localStorage.removeItem(REFRESH_TOKEN);
+  }
+
   private setAnyToken(tokenName: string, value: string) {
     if (!value) return;
     localStorage.setItem(tokenName, value);
