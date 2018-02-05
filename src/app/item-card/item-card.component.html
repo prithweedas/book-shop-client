@@ -1,0 +1,10 @@
+<div class="card hoverable" *ngIf="item">
+  <div class="card-image">
+    <img [src]="item.image">
+  </div>
+  <div class="card-content">
+    <span class="card-title inline-block left">{{item.name}}</span>
+    <p class="card-title inline-block right">{{item.price | currency: 'INR':true}}</p>
+    <p class="clear-fix italic">{{item.author}}</p>
+  </div>
+</div>

@@ -18,6 +18,7 @@ import { ListItemsComponent } from './list-items/list-items.component';
 import { AdditemComponent } from './additem/additem.component';
 import { ItemsService } from './services/items.service';
 import { ItemViewComponent } from './item-view/item-view.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ItemViewComponent } from './item-view/item-view.component';
     SignupComponent,
     ListItemsComponent,
     AdditemComponent,
-    ItemViewComponent
+    ItemViewComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,
