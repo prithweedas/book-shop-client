@@ -67,6 +67,9 @@
     },
     "pipe": {
       "spec": false
+    },
+    "guard": {
+      "spec": false
     }
   }
 }
