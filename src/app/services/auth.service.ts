@@ -48,4 +48,10 @@ export class AuthService {
 
     return +decoedRefreshToken.exp > now;
   }
+
+  getloggedInUserName(): string {
+    const token = this.tokenService.Token;
+    if (!token) return undefined;
+    return jwt_decode(token).userName;
+  }
 }
