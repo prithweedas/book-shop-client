@@ -21,6 +21,7 @@ import { ItemViewComponent } from './item-view/item-view.component';
 import { ItemCardComponent } from './item-card/item-card.component';
 import { ShortNamePipe } from './pipes/short-name.pipe';
 import { FormatPricePipe } from './pipes/format-price.pipe';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,17 +42,22 @@ import { FormatPricePipe } from './pipes/format-price.pipe';
     HttpClientModule,
     MaterializeModule,
     RouterModule.forRoot([
-      {path: '', redirectTo : '/items', pathMatch:'full'},
+      { path: '', redirectTo: '/items', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'items', component: ListItemsComponent },
-      { path: 'items/add', component: AdditemComponent },
+      {
+        path: 'items/add',
+        component: AdditemComponent,
+        canActivate: [AuthGuard]
+      },
       { path: 'items/:id', component: ItemViewComponent }
     ])
   ],
   providers: [
     TokenService,
     AuthService,
+    AuthGuard,
     ItemsService,
     {
       provide: HTTP_INTERCEPTORS,
