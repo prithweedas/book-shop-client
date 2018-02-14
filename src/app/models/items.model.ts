@@ -6,7 +6,7 @@ export interface IItem {
   price: number;
   author: string;
   description: string;
-  owner: string | IOwner;
+  owner: IOwner;
   image: string;
 }
 

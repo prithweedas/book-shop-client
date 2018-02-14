@@ -10,6 +10,19 @@
       <p>{{item.author}} | {{item.publishYear}}</p>
       <p>{{item.price | formatPrice:false:'Rs. ':'/-'}}</p>
       <p>{{item.description}}</p>
+
+      <hr>
+      <h5>Contact: </h5>
+      <div>{{item.owner.name}}</div>
+      <div *ngIf="authService.isLoggedIn()">
+        <div>{{item.owner.email}}</div>
+        <div>{{item.owner.college}}</div>
+      </div>
+      <div *ngIf="!authService.isLoggedIn()">
+        <p>
+          <a [routerLink]="['/login']">login</a> to view full details
+        </p>
+      </div>
     </div>
   </div>
 
