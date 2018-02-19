@@ -12,6 +12,7 @@
       <p>{{item.description}}</p>
 
       <hr>
+      <p>Post Date: {{item.createdAt | date }}</p>
       <h5>Contact: </h5>
       <div>{{item.owner.name}}</div>
       <div *ngIf="authService.isLoggedIn()">

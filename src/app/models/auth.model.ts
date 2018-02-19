@@ -3,6 +3,7 @@ export interface ILoginData {
   password: string;
 }
 export interface ISignUpData {
+  phone: string,
   email: string;
   password: string;
   name: string;
