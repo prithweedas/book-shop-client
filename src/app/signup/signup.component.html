@@ -29,14 +29,14 @@
       </div>
       <div class="row">
         <div class="input-field">
-          <input ngModel #phone="ngModel" name="phone" required type="text" id="phone" >
+          <input ngModel #phone="ngModel" name="phone" required type="text" id="phone"  pattern="^(7|8|9)\d{9}">
           <label for="phone">Phone</label>
           <div *ngIf="phone.touched && phone.invalid">
             <div class="alert warning" *ngIf="phone.errors.required">
               <i class="material-icons">error</i> Phone is requried.
             </div>
             <div class="alert warning" *ngIf="phone.errors.pattern">
-              <i class="material-icons">error</i> Invalid email address
+              <i class="material-icons">error</i> Invalid Phone Number
             </div>
           </div>
         </div>
