@@ -29,6 +29,20 @@
       </div>
       <div class="row">
         <div class="input-field">
+          <input ngModel #phone="ngModel" name="phone" required type="text" id="phone" >
+          <label for="phone">Phone</label>
+          <div *ngIf="phone.touched && phone.invalid">
+            <div class="alert warning" *ngIf="phone.errors.required">
+              <i class="material-icons">error</i> Phone is requried.
+            </div>
+            <div class="alert warning" *ngIf="phone.errors.pattern">
+              <i class="material-icons">error</i> Invalid email address
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
           <select name="passingYear" ngModel #passingYear="ngModel" name="passingYear" materialize="material_select"
             [materializeSelectOptions]="yearOptions" required>
             <option value="" disabled selected>Select your passing Year</option>
