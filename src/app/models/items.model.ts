@@ -8,6 +8,7 @@ export interface IItem {
   description: string;
   owner: IOwner;
   image: string;
+  createdAt: number;
 }
 
 export interface IOwner {

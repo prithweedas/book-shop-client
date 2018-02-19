@@ -10,8 +10,9 @@
       <p>{{item.author}} | {{item.publishYear}}</p>
       <p>{{item.price | formatPrice:false:'Rs. ':'/-'}}</p>
       <p>{{item.description}}</p>
-
+      
       <hr>
+      <p>Post Date: {{item.createdAt}}</p>
       <h5>Contact: </h5>
       <div>{{item.owner.name}}</div>
       <div *ngIf="authService.isLoggedIn()">
